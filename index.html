@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body>
+    <audio id="audio" autoplay>
+      <source src="año nuevo.mp3" type="audio/mp3">
+    </audio>
+    <!-- credits @strangerintheq -->
+    <script src="newyear-fireworks-animation.js">
+    </script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var audio = document.getElementById('audio');
+
+          // Agrega un evento de clic al documento
+          document.addEventListener('click', function() {
+              // Verifica si el audio ya está pausado o detenido
+              if (audio.paused || audio.ended) {
+                  // Inicia la reproducción del audio
+                  audio.play();
+              }
+          });
+
+          audio.addEventListener('ended', function() {
+              // Reinicia la reproducción del audio
+              audio.currentTime = 0; // Reinicia la reproducción al principio
+              audio.play(); // Reproduce el audio nuevamente
+          });
+      });
+    </script>
+
+    
+  </body>
+</html>
